@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./images/favicon.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/12bfc7a935.js" crossorigin="anonymous"></script>
+    <title>Controle Financeiro</title>
+</head>
+
+<body>
+    <header id="container_header">
+        <div class="container_menu">
+            <img src="/images/logo.png" alt="logo controle financeiro">
+            <h3>Controle financeiro</h3>
+            <div class="menu_button">
+                <a href=""><i class="fas fa-bars"></i></a>
+                <nav class="menu">
+                    <ul>
+                        <div class="close">
+                            <a href=""><i class="fas fa-times"></i></a>
+                        </div>
+                        <li><a href="">Cadastro de transações</a></li>
+                        <li class="pipe">|</li>
+                        <li><a href="">Salvar no servidor</a></li>
+                        <li class="pipe">|</li>
+                        <li><a href="">Limpar dados</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main id="container_main">
+        <div class="container_main">
+            <div class="container_form">
+                <h3>Nova Transação</h3>
+                <form id="form">
+                    <div class="input_box">
+                        <label for="tipo">Tipo de transação</label>
+                        <select id="tipo" required>
+                            <option value="Compra">Compra</option>
+                            <option value="Venda">Venda</option>
+                        </select>
+                    </div>
+                    <div class="input_box">
+                        <label for="mercadoria">Nome da mercadoria</label>
+                        <input type="text" id="mercadoria" placeholder="Input" required>
+                    </div>
+                    <div class="input_box">
+                        <label for="valor">Valor</label>
+                        <input type="text" id="valor" placeholder="R$ 0,00" required>
+                    </div>
+                    <input id="button_input" type="submit" value="Adicionar transação">
+                </form>
+                <hr>
+            </div>
+            <div class="container_table">
+                <table>
+                    <p>Extrato de transações</p>
+                    <tr>
+                        <th></th>
+                        <th class="left weight">Mercadoria</th>
+                        <th class="right weight">Valor</th>
+                    </tr>
+                    <tr>
+                        <td class="border" colspan="3"></td>
+                    </tr>
+                    <tr>
+                        <td class="calc_symbol">+</td>
+                        <td class="left">Lorem iprum dolor sit amet consectur</td>
+                        <td class="right">R$ 12.999,99</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="border"></td>
+                    </tr>              
+                    <tr>
+                        <td class="calc_symbol">-</td>
+                        <td class="left">Quis nostrud exercitation</td>
+                        <td class="right">R$ 99,99</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="border"></td>
+                    </tr>
+                    <tr>
+                        <td class="calc_symbol">+</td>
+                        <td class="left">Lorem ipsum</td>
+                        <td class="right">R$ 9,99</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="border"></td>
+                    </tr>
+                    <tr></tr>
+                    <tr>
+                        <td colspan="3" class="border_bottom"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="left weight">Total</td>
+                        <td class="right weight">R$ 12.909,99</td>
+                    </tr>
+                    <tr>
+                        <td class="right small" colspan="3">[LUCRO]</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer_black"></div>
+    </footer>
+</body>
+
+</html>
