@@ -202,13 +202,14 @@
     display: flex;
     justify-content: space-between;
   }
-  #container_main .container_main .container_form #form select {
+  #container_main .container_main .container_form #form #tipo {
     width: 150px;
   }
-  #container_main .container_main .container_form #form .name {
-    width: 348px;
+  #container_main .container_main .container_form #form .center {
+    width: 100%;
+    margin: 0 20px;
   }
-  #container_main .container_main .container_form #form .value {
+  #container_main .container_main .container_form #form #valor {
     width: 150px;
   }
   #container_main .container_main .container_form #button_input {

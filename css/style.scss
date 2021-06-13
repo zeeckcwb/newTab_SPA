@@ -126,6 +126,7 @@
                     color: #333333;
                     font-size: 0.875rem;
                 }
+
                 label{
                     width: 100%;
                     display: block;
@@ -191,15 +192,16 @@
                     display: flex;
                     justify-content: space-between;
 
-                    select{
+                    #tipo{
                         width: 150px;
                     }
 
-                    .name{
-                        width: 348px;
+                    .center{
+                        width: 100%;
+                        margin: 0 20px;
                     }
 
-                    .value{
+                    #valor{
                         width: 150px;
                     }
                 }
