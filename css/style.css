@@ -19,7 +19,8 @@
 }
 
 #container_header .container_menu {
-  max-width: 370px;
+  width: 100%;
+  padding: 0 20px;
   height: 100%;
   display: flex;
   margin: auto;
@@ -100,6 +101,12 @@
   background: #888888;
 }
 
+@media screen and (min-width: 768px) {
+  #container_header .container_menu .menu_button .menu {
+    width: 252px;
+  }
+}
+
 #container_header .container_menu .menu_button:hover .menu {
   display: flex;
 }
@@ -109,7 +116,8 @@
 }
 
 #container_main .container_main {
-  max-width: 370px;
+  width: 100%;
+  padding: 0 20px;
   margin: auto;
 }
 
@@ -159,7 +167,9 @@
   color: #888888;
 }
 
-#container_main .container_main .container_form #form #button_input {
+#container_main .container_main .container_form #button_input {
+  width: 100%;
+  height: 32px;
   margin-top: 20px;
   background: #333333;
   border-radius: 4px;
@@ -168,8 +178,46 @@
   font-size: 0.875rem;
 }
 
-#container_main .container_main .container_form h3 {
+#container_main .container_main .container_form .title_form {
   display: none;
+}
+
+@media screen and (min-width: 768px) {
+  #container_main .container_main .container_form {
+    border: 1px solid #979797;
+    border-radius: 4px;
+    height: 189px;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    align-items: center;
+  }
+  #container_main .container_main .container_form hr {
+    display: none;
+  }
+  #container_main .container_main .container_form #form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  #container_main .container_main .container_form #form select {
+    width: 150px;
+  }
+  #container_main .container_main .container_form #form .name {
+    width: 348px;
+  }
+  #container_main .container_main .container_form #form .value {
+    width: 150px;
+  }
+  #container_main .container_main .container_form #button_input {
+    width: 200px;
+    align-self: flex-end;
+  }
+  #container_main .container_main .container_form .title_form {
+    display: block;
+  }
 }
 
 #container_main .container_main hr {
@@ -178,6 +226,7 @@
 }
 
 #container_main .container_main .container_table p {
+  width: 100%;
   text-align: center;
   margin-bottom: 19px;
   font-size: 1.125rem;
@@ -186,6 +235,7 @@
 
 #container_main .container_main .container_table table {
   font-size: 0.875rem;
+  width: 100%;
 }
 
 #container_main .container_main .container_table table .border {
@@ -211,7 +261,13 @@
 #container_main .container_main .container_table table .left {
   text-align: start;
   vertical-align: top;
-  width: 50%;
+  width: 231px;
+}
+
+@media screen and (max-width: 420px) {
+  #container_main .container_main .container_table table .left {
+    width: 50%;
+  }
 }
 
 #container_main .container_main .container_table table .right {

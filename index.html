@@ -41,7 +41,7 @@
     <main id="container_main">
         <div class="container_main">
             <div class="container_form">
-                <h3>Nova Transação</h3>
+                <h3 class="title_form">Nova Transação</h3>
                 <form id="form">
                     <div class="input_box">
                         <label for="tipo">Tipo de transação</label>
@@ -50,16 +50,16 @@
                             <option value="Venda">Venda</option>
                         </select>
                     </div>
-                    <div class="input_box">
+                    <div class="input_box name">
                         <label for="mercadoria">Nome da mercadoria</label>
                         <input type="text" id="mercadoria" placeholder="Input" required>
                     </div>
-                    <div class="input_box">
+                    <div class="input_box value">
                         <label for="valor">Valor</label>
                         <input type="text" id="valor" placeholder="R$ 0,00" required>
-                    </div>
-                    <input id="button_input" type="submit" value="Adicionar transação">
+                    </div>  
                 </form>
+                <button id="button_input">Adicionar transação</button>
                 <hr>
             </div>
             <div class="container_table">
