@@ -101,6 +101,10 @@
   background: #888888;
 }
 
+#container_header .container_menu .menu_button .menu ul li:hover a {
+  color: #333333;
+}
+
 @media screen and (min-width: 768px) {
   #container_header .container_menu .menu_button .menu {
     width: 252px;
@@ -109,6 +113,7 @@
 
 #container_header .container_menu .menu_button:hover .menu {
   display: flex;
+  opacity: 1;
 }
 
 #container_header .container_menu .menu_button:hover .close a:hover .menu {
@@ -279,6 +284,7 @@
 
 #container_main .container_main .container_table table .calc_symbol {
   width: 20px;
+  text-align: center;
 }
 
 #container_main .container_main .container_table table .small {

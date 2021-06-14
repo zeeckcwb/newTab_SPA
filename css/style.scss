@@ -56,7 +56,7 @@
                     left: 20px;
                     a{
                         color: #F6F6F6;
-                        text-decoration: none;                        
+                        text-decoration: none;                
                         i{
                             font-size: 1.5rem;
                         }
@@ -89,6 +89,10 @@
                 }
                 ul li:hover{
                     background: #888888;
+
+                    a{
+                        color: #333333;
+                    }
                 }
             }
             @media screen and (min-width:768px) {
@@ -97,9 +101,11 @@
                 }                
             }
         }
+        
         .menu_button:hover{
             .menu{
                 display: flex;
+                opacity: 1;
             }
 
             .close a:hover{
@@ -259,18 +265,23 @@
                         width: 50%;
                     }
                 }
+
                 .right{
                     text-align: end;
                     vertical-align: top;
                     padding-right: 15px;
                 }
+
                 .calc_symbol{
                     width: 20px;
+                    text-align: center;
                 }
+
                 .small{
                     font-size: 0.625rem;
                     padding-top: 0px;
                 }
+
                 .weight{
                     font-weight: 700;
                 }
