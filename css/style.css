@@ -36,9 +36,9 @@
   line-height: 24px;
 }
 
-#container_header .container_menu a {
+#container_header .container_menu .menu_button a i {
   font-size: 1.25rem;
-  color: #000;
+  color: #333333;
 }
 
 #container_header .container_menu .menu_button .menu {
@@ -97,10 +97,12 @@
 
 #container_header .container_menu .menu_button .menu ul .item_menu:hover {
   background: #888888;
+  transition: 0.3s ease-in;
 }
 
 #container_header .container_menu .menu_button .menu ul .item_menu:hover a {
   color: #333333;
+  font-weight: 600;
 }
 
 @media screen and (min-width: 768px) {
@@ -178,6 +180,14 @@
   }
   #container_header .container_menu .menu_button .menu .close {
     display: none;
+  }
+  #container_header .container_menu .menu_button .menu ul .item_menu:hover {
+    background: #888888;
+    transition: 0.3s ease-in;
+  }
+  #container_header .container_menu .menu_button .menu ul .item_menu:hover a {
+    color: #F6F6F6;
+    font-weight: 600;
   }
 }
 
@@ -292,6 +302,10 @@
   margin: 28px 0 23px 0;
 }
 
+#container_main .container_main .container_table {
+  height: 281px;
+}
+
 #container_main .container_main .container_table p {
   width: 100%;
   text-align: center;
@@ -397,10 +411,11 @@
   }
 }
 
-footer .footer_black {
+footer {
+  position: fixed;
   width: 100%;
   height: 8px;
-  background-color: #333333;
-  position: absolute;
   bottom: 0;
+  left: 0;
+  background-color: #333333;
 }
