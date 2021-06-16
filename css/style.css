@@ -36,7 +36,7 @@
   line-height: 24px;
 }
 
-#container_header .container_menu .menu_button a i {
+#container_header .container_menu .menu_button a .fa-bars {
   font-size: 1.25rem;
   color: #333333;
 }
@@ -144,7 +144,7 @@
     position: absolute;
     right: 20px;
   }
-  #container_header .container_menu .menu_button .fas {
+  #container_header .container_menu .menu_button .fa-bars {
     display: none;
   }
   #container_header .container_menu .menu_button .menu {

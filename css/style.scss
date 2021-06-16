@@ -35,7 +35,7 @@
         .menu_button{
 
             a{
-                i{
+                .fa-bars{
                     font-size: 1.25rem;
                     color: #333333;
                 }
@@ -148,7 +148,7 @@
                 position: absolute;
                 right: 20px;
 
-                .fas{
+                .fa-bars{
                     display: none;
                 }
 
