@@ -9,6 +9,11 @@
     input:focus, textarea:focus, select:focus, button:focus{
         outline-style: none;
     }
+
+    body{
+        min-height: 100vh;
+        position: relative;
+    }
 }
 
 #container_header{
@@ -430,7 +435,7 @@
 }
 
 footer{
-    position: fixed;
+    position: absolute;
     width: 100%;
     height: 8px;
     bottom: 0;
