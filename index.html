@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/12bfc7a935.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./script/main.js"></script>
     <title>Controle Financeiro</title>
 </head>
 
@@ -54,14 +55,18 @@
                     </div>
                     <div class="input_box center">
                         <label for="mercadoria">Nome da mercadoria</label>
-                        <input type="text" id="mercadoria" placeholder="Input" required>
+                        <input type="text" id="mercadoria" placeholder="Insira a mercadoria" required>
+                        <div id="validacaoMercadoria" class="validacao"></div>
                     </div>
                     <div class="input_box">
                         <label for="valor">Valor</label>
                         <input type="text" id="valor" placeholder="R$ 0,00" required>
-                    </div>  
+                        <div id="validacaoValor" class="validacao"></div>
+                    </div> 
+                    <div class="button_box">
+                        <button id="button_input" onclick="validarCampo()">Adicionar transação</button>
+                    </div>                   
                 </form>
-                <button id="button_input">Adicionar transação</button>
                 <hr>
             </div>
             <div class="container_table">

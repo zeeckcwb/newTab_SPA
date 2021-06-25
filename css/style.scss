@@ -226,6 +226,7 @@
                 .input_box{
                     color: #333333;
                     font-size: 0.875rem;
+                    width: 100%;
                 }
 
                 label{
@@ -241,20 +242,25 @@
                     border: 1px solid #979797;
                     border-radius: 4px;
                     color: #888888;
-                    padding-left: 10px;
                     font-size: 0.875rem;
+                    padding: 0 10px;
                 }
                 input{
                     width: 100%;
                     display: block;
                     height: 32px;
                     border-radius: 4px;
-                    border: 1px solid #979797
+                    border: 1px solid #979797;
+                    padding: 0 10px;
                 }
                 ::placeholder{
-                    padding-left: 10px;
                     font-size: 0.875rem;
                     color: #888888;
+                }
+                .validacao{
+                    color: #E06904;
+                    font-weight: 600;
+                    margin-top: 5px;
                 }
             }
             #button_input{
@@ -292,24 +298,35 @@
                     width: 100%;
                     display: flex;
                     justify-content: space-between;
+                    flex-wrap: wrap;
+
+                    .input_box{
+                        width: 22%;
+                    }
 
                     #tipo{
-                        width: 150px;
+                        width: 100%;
                     }
 
                     .center{
-                        width: 100%;
+                        width: 50%;
                         margin: 0 20px;
                     }
 
                     #valor{
-                        width: 150px;
+                        width: 100%;
                     }
                 }
 
-                #button_input{
-                    width: 200px;
-                    align-self: flex-end;
+                .button_box{
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-end;
+
+                    #button_input{
+                        width: 200px;
+                        align-self: flex-end;
+                    }
                 }
 
                 .title_form{
@@ -394,7 +411,7 @@
 
             .container_form{
                 width: 38%;
-                height: 344px;
+                height: 390px;
                 margin: 0 20px 0 0;
                 padding: 20px 14px;
 
@@ -405,6 +422,10 @@
                 #form{
                     display: flex;
                     flex-direction: column;
+
+                    .input_box{
+                        width: 100%;
+                    }
 
                     #tipo{
                         width: 100%;
@@ -419,8 +440,16 @@
                         width: 100%;
                     }
                 }
-                #button_input{
+
+                .button_box{
                     width: 100%;
+                    display: flex;
+                    justify-content: flex-end;
+
+                    #button_input{
+                        width: 100%;
+                        align-self: flex-end;
+                    }
                 }
             }
 
