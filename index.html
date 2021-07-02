@@ -13,7 +13,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/12bfc7a935.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="./script/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
+    <script src="./script/main.js"></script>
     <title>Controle Financeiro</title>
 </head>
 
@@ -35,7 +37,7 @@
                         <li class="pipe">|</li>
                         <li class="item_menu"><a href="">Salvar no servidor</a></li>
                         <li class="pipe">|</li>
-                        <li class="item_menu"><a href="">Limpar dados</a></li>
+                        <li class="item_menu"><a href="" onclick="deletarTransacoes()">Limpar dados</a></li>
                     </ul>
                 </nav>
             </div>
@@ -45,32 +47,34 @@
         <div class="container_main">
             <div class="container_form">
                 <h3 class="title_form">Nova Transação</h3>
-                <form id="form">
+                <form id="form" onsubmit="validarCampo(event);">
                     <div class="input_box">
                         <label for="tipo">Tipo de transação</label>
-                        <select id="tipo" required>
+                        <select name="tipo" id="tipo" onclick="validacaoTipo.innerHTML = ''">
+                            <option value="">Selecione</option>
                             <option value="Compra">Compra</option>
                             <option value="Venda">Venda</option>
                         </select>
+                        <div id="validacaoTipo" class="validacao"></div>
                     </div>
                     <div class="input_box center">
                         <label for="mercadoria">Nome da mercadoria</label>
-                        <input type="text" id="mercadoria" placeholder="Insira a mercadoria" required>
+                        <input name="mercadoria" type="text" id="mercadoria" placeholder="Insira a mercadoria" onkeypress="validacaoMercadoria.innerHTML = ''">
                         <div id="validacaoMercadoria" class="validacao"></div>
                     </div>
                     <div class="input_box">
                         <label for="valor">Valor</label>
-                        <input type="text" id="valor" placeholder="R$ 0,00" required>
+                        <input name="valor" type="text" id="valor" placeholder="R$ 0,00" onkeypress="validacaoValor.innerHTML = ''">
                         <div id="validacaoValor" class="validacao"></div>
                     </div> 
                     <div class="button_box">
-                        <button id="button_input" onclick="validarCampo()">Adicionar transação</button>
+                        <input type="submit" value="Adicionar transação" id="button_input"></input>
                     </div>                   
                 </form>
                 <hr>
             </div>
             <div class="container_table">
-                <table>
+                <table id="tabela">
                     <p>Extrato de transações</p>
                     <tr>
                         <th></th>
@@ -78,32 +82,15 @@
                         <th class="right weight">Valor</th>
                     </tr>
                     <tr>
-                        <td class="border" colspan="3"></td>
-                    </tr>
-                    <tr>
-                        <td class="calc_symbol">+</td>
-                        <td class="left">Lorem iprum dolor sit amet consectur</td>
-                        <td class="right">R$ 12.999,99</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3" class="border"></td>
-                    </tr>              
-                    <tr>
-                        <td class="calc_symbol">-</td>
-                        <td class="left">Quis nostrud exercitation</td>
-                        <td class="right">R$ 99,99</td>
-                    </tr>
-                    <tr>
                         <td colspan="3" class="border"></td>
                     </tr>
-                    <tr>
-                        <td class="calc_symbol">+</td>
-                        <td class="left">Lorem ipsum</td>
-                        <td class="right">R$ 9,99</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3" class="border"></td>
-                    </tr>
+                    <tbody id="content-table"> <!-- conteúdo vindo dinâmicamente -->
+                        <tr>
+                            <td colspan="3">
+                                Nenhuma transação cadastrada.
+                            </td>
+                        </tr>
+                    </tbody>
                     <tr></tr>
                     <tr>
                         <td colspan="3" class="border_bottom"></td>
@@ -111,10 +98,10 @@
                     <tr>
                         <td></td>
                         <td class="left weight">Total</td>
-                        <td class="right weight">R$ 12.909,99</td>
+                        <td class="right weight" id="campoTotal"></td>
                     </tr>
                     <tr>
-                        <td class="right small" colspan="3">[LUCRO]</td>
+                        <td class="right small" colspan="3" id="campoLucro"></td>
                     </tr>
                 </table>
             </div>
@@ -123,6 +110,9 @@
     <footer class="footer">
         
     </footer>
+    <script>
+        listarTransacoes()
+    </script>
 </body>
 
 </html>

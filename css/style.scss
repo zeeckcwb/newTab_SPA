@@ -340,7 +340,8 @@
             margin: 28px 0 23px 0;
         }
         .container_table{
-            height: 281px;
+            height: 100%;
+            margin: 0 0 30px 0;
 
             p{
                 width: 100%;
@@ -387,7 +388,8 @@
                 }
 
                 .calc_symbol{
-                    width: 20px;
+                    width: 0px;
+                    padding: 0 10px 0 20px;
                     text-align: center;
                 }
 
@@ -455,16 +457,17 @@
 
             .container_table{
                 width: 62%;
-                height: 281px;
+                height: 41vh;
                 margin: 0;
                 padding: 20px 0;
+                overflow: auto;
             }
         }
     }
 }
 
 footer{
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 8px;
     bottom: 0;
