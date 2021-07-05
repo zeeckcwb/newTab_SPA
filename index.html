@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -59,17 +59,19 @@
                     </div>
                     <div class="input_box center">
                         <label for="mercadoria">Nome da mercadoria</label>
-                        <input name="mercadoria" type="text" id="mercadoria" placeholder="Insira a mercadoria" onkeypress="validacaoMercadoria.innerHTML = ''">
+                        <input name="mercadoria" type="text" id="mercadoria" placeholder="Insira a mercadoria"
+                            onkeypress="validacaoMercadoria.innerHTML = ''">
                         <div id="validacaoMercadoria" class="validacao"></div>
                     </div>
                     <div class="input_box">
                         <label for="valor">Valor</label>
-                        <input name="valor" type="text" id="valor" placeholder="R$ 0,00" onkeypress="validacaoValor.innerHTML = ''">
+                        <input name="valor" type="text" id="valor" placeholder="R$ 0,00"
+                            onkeypress="validacaoValor.innerHTML = ''">
                         <div id="validacaoValor" class="validacao"></div>
-                    </div> 
+                    </div>
                     <div class="button_box">
                         <input type="submit" value="Adicionar transação" id="button_input"></input>
-                    </div>                   
+                    </div>
                 </form>
                 <hr>
             </div>
@@ -84,7 +86,8 @@
                     <tr>
                         <td colspan="3" class="border"></td>
                     </tr>
-                    <tbody id="content-table"> <!-- conteúdo vindo dinâmicamente -->
+                    <tbody id="content-table">
+                        <!-- conteúdo vindo dinâmicamente -->
                         <tr>
                             <td colspan="3">
                                 Nenhuma transação cadastrada.
@@ -108,7 +111,7 @@
         </div>
     </main>
     <footer class="footer">
-        
+
     </footer>
     <script>
         listarTransacoes()
