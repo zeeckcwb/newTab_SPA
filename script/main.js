@@ -1,9 +1,11 @@
+/*Mascara para validação do campo Valor no formulário**/
 $(document).ready(function () {
     $('#valor').mask('000.000.000.000.000,00', { reverse: true });
 });
 
+/*Variável que cria o objeto no localStorage*/
 var transacao = [];
-
+/*Função para validação dos campos, deixando o preenchimento obrigatório*/
 function validarCampo(e) {
     e.preventDefault()
     var error = false;
@@ -34,11 +36,13 @@ function validarCampo(e) {
             transacao = []
         }
         transacao.push({ tipo: tipo, mercadoria: mercadoria, valor: valor })
+        /*Armazenando no localStorage*/
         localStorage.setItem('transacao', JSON.stringify(transacao))
         listarTransacoes()
     }
 }
 
+/*Função que lista as transações inseridas na tela*/
 function listarTransacoes() {
     transacao = JSON.parse(localStorage.getItem('transacao'))
     if (transacao != null) {
@@ -59,6 +63,7 @@ function listarTransacoes() {
     }
 }
 
+/*Função que altera o símbolo de cada transação, sendo + ou -*/
 function alterarSimbolo() {
     transacao = JSON.parse(localStorage.getItem('transacao'))
     i = 0;
@@ -71,12 +76,14 @@ function alterarSimbolo() {
     }
 }
 
+/*Função que deleta todas as transações do localStorage*/
 function deletarTransacoes() {
     localStorage.removeItem('transacao')
     alert("registros excluidos")
     listarTransacoes()
 }
 
+/*Função realiza o cálculo dos valores inseridos no formulário*/
 var total = 0
 function calculoValores() {
     let transacao = JSON.parse(localStorage.getItem('transacao'))
@@ -107,6 +114,7 @@ function calculoValores() {
     }
 }
 
+/*Função que lista na tela se o valor apresentado é de lucro ou de prejuízo, baseado no valor da variável 'total'*/
 function listarTotal() {
     calculoValores()
     formatarMoeda()
@@ -123,7 +131,7 @@ function listarTotal() {
         campoLucro.innerHTML = ""
     }
 }
-
+/*Função que formata a variável 'total' para uma string com o formato de moeda R$*/
 function formatarMoeda() {
     totalFormatado = total
     totalFormatado = totalFormatado + '';
