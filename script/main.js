@@ -39,6 +39,7 @@ function validarCampo(e) {
         /*Armazenando no localStorage*/
         localStorage.setItem('transacao', JSON.stringify(transacao))
         listarTransacoes()
+        redirecionar()
     }
 }
 
@@ -78,8 +79,14 @@ function alterarSimbolo() {
 
 /*Função que deleta todas as transações do localStorage*/
 function deletarTransacoes() {
-    localStorage.removeItem('transacao')
-    alert("registros excluidos")
+    confirm = confirm("Tem certeza de que deseja excluir os registros armazenados?")
+    if(confirm == true){
+        localStorage.removeItem('transacao')
+        deleteApi()
+        alert("Registros excluídos")
+    } else {
+        alert("Registros mantidos")
+    }
     listarTransacoes()
 }
 
@@ -141,5 +148,118 @@ function formatarMoeda() {
 
     if (totalFormatado.length > 6) {
         totalFormatado = totalFormatado.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
+    }
+}
+
+/*Função utilizada para a página recarregar após o submit do form */
+function redirecionar(){
+    location.href="./index.html"
+}
+
+/* CREATE - Inserindo dados na API */
+var transacaoJson = JSON.stringify(localStorage.getItem('transacao'))
+function create(){
+    fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico", {
+        method: "POST",
+        headers: {
+            Authorization: 'Bearer key2CwkHb0CKumjuM',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            records: [
+                {
+                    fields: {
+                        Aluno: '9940',
+                        Json: transacaoJson
+                    }
+                }
+            ]
+        })
+    })
+    update()
+}
+
+/*UPDATE - Atualizando os dados da api */
+function update(){
+    getId()
+    fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico", {
+        method: "PATCH",
+        headers: {
+            Authorization: 'Bearer key2CwkHb0CKumjuM',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            records: [
+                {
+                    id: idAluno,
+                    fields: {
+                        Aluno: '9940',
+                        Json: transacaoJson
+                    }           
+                }
+            ]
+        })
+    })
+}
+
+/*DELETE - Função utilizada para realizar a deleção dos dados armazenados na API */
+function deleteApi(){
+    getId()
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer key2CwkHb0CKumjuM");
+
+    var requestOptions = {
+        method: 'DELETE',
+        headers: myHeaders,
+        redirect: 'follow'
+    };
+
+    fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico/"+idAluno, requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+}
+
+/*GET - Recuperando os dados da api em JSON e atribuindo a variável resultJson */
+var resultJson = {}
+function getJson(){
+    fetch("https://api.airtable.com/v0/appRNtYLglpPhv2QD/Historico?maxRecords=&view=Grid%20view", {
+        headers: {
+            Authorization: 'Bearer key2CwkHb0CKumjuM'
+        },
+    }).then(response => response.json().then(result => {resultJson = result}))
+}
+
+/*Recuperando o ID da entrada na API baseado nos últimos digitos do cpf do aluno */
+var idAluno = ''
+function getId(){
+    let i = 0;
+    for(; i < resultJson.records.length; i++){
+        if(resultJson.records[i].fields.Aluno == "9940"){
+            idAluno = resultJson.records[i].id
+        }
+    }
+}
+
+/*Função para realizar a verificação se já existe entrada na API */
+var verification = true;
+function trueOrFalse(){
+    let i = 0
+    for(; i < resultJson.records.length; i++){
+        if(resultJson.records[i].fields.Aluno == "9940"){
+            verification = true;
+        } else {
+            verification = false;
+        }
+    }
+}
+
+/*Função que verifica se existe entrada na API, caso não exista cria uma nova, caso exista realiza o update */
+function choiseFunction(){
+    trueOrFalse()
+    if(verification == false){
+        create()
+    } else {
+        update()
     }
 }
